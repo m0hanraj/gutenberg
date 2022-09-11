@@ -20,6 +20,7 @@ import {
 	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 } from '@wordpress/components';
 import { useInstanceId } from '@wordpress/compose';
+import { View } from '@wordpress/primitives';
 
 /**
  * Internal dependencies
@@ -75,7 +76,7 @@ function DimensionInput( { label, onChange, isResizing, value = '' } ) {
 			) }
 
 			{ spacingSizes?.length > 0 && (
-				<div className="tools-panel-item-spacing">
+				<View className="tools-panel-item-spacing">
 					<SpacingSizesControl
 						values={ { all: computedValue } }
 						onChange={ handleOnChange }
@@ -85,7 +86,7 @@ function DimensionInput( { label, onChange, isResizing, value = '' } ) {
 						allowReset={ false }
 						splitOnAxis={ false }
 					/>
-				</div>
+				</View>
 			) }
 		</>
 	);
