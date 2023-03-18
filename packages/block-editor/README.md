@@ -201,10 +201,6 @@ _Returns_
 
 -   `WPComponent`: The component to be rendered.
 
-### BlockRoot
-
-Undocumented declaration.
-
 ### BlockSelectionClearer
 
 Undocumented declaration.

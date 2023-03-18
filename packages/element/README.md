@@ -295,6 +295,15 @@ _Returns_
 
 -   `JSX.Element`: Dangerously-rendering component.
 
+### registerDirective
+
+Registers a new directive.
+
+_Parameters_
+
+-   _name_ `string`: Name of the directive.
+-   _handler_ `Function`: Handler for the directive.
+
 ### render
 
 Renders a given element into the target DOM node.
