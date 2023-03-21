@@ -160,13 +160,15 @@ export default function QueryInspectorControls( {
 							<>
 								<RangeControl
 									__nextHasNoMarginBottom
-									label={ __( 'Columns' ) }
-									value={ displayLayout.columns }
+									label={ __( 'Minimum Column Width' ) }
+									value={ displayLayout.columnWidth }
 									onChange={ ( value ) =>
-										setDisplayLayout( { columns: value } )
+										setDisplayLayout( {
+											columnWidth: value,
+										} )
 									}
 									min={ 2 }
-									max={ Math.max( 6, displayLayout.columns ) }
+									max={ 60 }
 								/>
 								{ displayLayout.columns > 6 && (
 									<Notice
