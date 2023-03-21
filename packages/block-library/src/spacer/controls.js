@@ -9,11 +9,7 @@ import {
 	isValueSpacingPreset,
 } from '@wordpress/block-editor';
 import {
-<<<<<<< HEAD
-	UnitControl,
-=======
 	BaseControl,
->>>>>>> 0f030a9338 (Handle disabled custom sizes, and empty spacing scale)
 	PanelBody,
 	__experimentalUseCustomUnits as useCustomUnits,
 	__experimentalUnitControl as UnitControl,
