@@ -6,10 +6,15 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { useBlockProps, getSpacingPresetCssVar } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	getSpacingPresetCssVar,
+	store as blockEditorStore,
+} from '@wordpress/block-editor';
 import { ResizableBox } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { View } from '@wordpress/primitives';
+import { useSelect } from '@wordpress/data';
 
 /**
  * Internal dependencies
@@ -78,7 +83,12 @@ const SpacerEdit = ( {
 	setAttributes,
 	toggleSelection,
 	context,
+	className,
 } ) => {
+	const disableCustomSpacingSizes = useSelect( ( select ) => {
+		const editorSettings = select( blockEditorStore ).getSettings();
+		return editorSettings?.disableCustomSpacingSizes;
+	} );
 	const { orientation } = context;
 	const { height, width } = attributes;
 
@@ -178,8 +188,16 @@ const SpacerEdit = ( {
 
 	return (
 		<>
-			<View { ...useBlockProps( { style } ) }>
-				{ resizableBoxWithOrientation( orientation ) }
+			<View
+				{ ...useBlockProps( {
+					style,
+					className: classnames( className, {
+						'custom-sizes-disabled': disableCustomSpacingSizes,
+					} ),
+				} ) }
+			>
+				{ ! disableCustomSpacingSizes &&
+					resizableBoxWithOrientation( orientation ) }
 			</View>
 			<SpacerControls
 				setAttributes={ setAttributes }
