@@ -157,6 +157,7 @@ export default function UnsavedInnerBlocks( {
 		 */
 		/* eslint-disable react-hooks/exhaustive-deps */
 		[
+			blocks,
 			createNavigationMenu,
 			isDisabled,
 			isSaving,
