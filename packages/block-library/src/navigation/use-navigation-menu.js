@@ -7,6 +7,9 @@ import {
 } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 
+/**
+ * Internal dependencies
+ */
 import { isNumeric } from './edit/utils';
 import { DEFAULT_ENTITY_KIND, DEFAULT_ENTITY_TYPE } from './constants';
 
@@ -134,7 +137,8 @@ function selectExistingMenu( select, recordKey ) {
 		]
 	);
 
-	const hasNavigationMenu = navigationMenus?.length;
+	const hasNavigationMenu =
+		hasResolvedNavigationMenuSlugQuery && navigationMenus?.length;
 
 	// `wp_navigation` entities are keyed by Post ID in state.
 	// Perform subsequent lookups based on the ID of the record
@@ -142,10 +146,6 @@ function selectExistingMenu( select, recordKey ) {
 	const idQueryArgs = hasNavigationMenu
 		? [ DEFAULT_ENTITY_KIND, DEFAULT_ENTITY_TYPE, navigationMenus[ 0 ]?.id ]
 		: [];
-
-	if ( idQueryArgs.length ) {
-		debugger;
-	}
 
 	const editedNavigationMenu = hasNavigationMenu
 		? getEditedEntityRecord( ...idQueryArgs )
