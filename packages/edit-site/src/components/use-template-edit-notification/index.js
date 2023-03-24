@@ -77,5 +77,11 @@ export default function useTemplateEditNotification() {
 				}
 			);
 		}
-	}, [ isPostEditFocus, isTemplateBlockSelected, createNotice ] );
+	}, [
+		isPostEditFocus,
+		isTemplateBlockSelected,
+		createNotice,
+		shownNotification,
+		setEditFocus,
+	] );
 }
